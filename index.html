@@ -28,11 +28,11 @@
         }
 
         header img {
-            position: absolute; /* Position the image absolutely */
-			top: 0; /* Align it to the top of the header */
-			left: 0; /* Align it to the left of the header */
-			max-height: 65px; /* Adjust the height of the logo */
-			margin-right: 1rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-height: 65px;
+            margin-right: 1rem;
         }
 
         nav {
@@ -170,12 +170,82 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Media Queries for responsiveness */
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            header img {
+                max-height: 50px;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            footer {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            header img {
+                margin-bottom: 1rem;
+                max-height: 40px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            footer {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1.5rem 0.5rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            footer {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://iili.io/35axVzx.png" alt="Logo"> <!-- Add your logo image here -->
+        <img src="https://iili.io/35axVzx.png" alt="Logo">
         <div>
             <h1>O.L.Bandara</h1>
             <p>Cultivating Mindfulness, Wisdom, and Compassion</p>
@@ -287,7 +357,7 @@
                     <ul>
                         <li>Email: <a href="mailto:osithalakshan856@gmail.com">osithalakshan856@gmail.com</a></li>
                         <li>Phone: +94768855659</li>
-                        <li>Address: Sri Lanka,colombo 07</li>
+                        <li>Address: Sri Lanka, Colombo 07</li>
                     </ul>
                 </div>
             </div>
