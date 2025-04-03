@@ -32,7 +32,7 @@
             justify-content: center;
             flex-wrap: wrap;
             width: 100vw;
-            min-height: 20vh;
+            min-height: 20vh; /* Ensure it takes up enough vertical space */
         }
 
         header img {
@@ -49,10 +49,8 @@
             border-bottom: 1px solid #dee2e6;
             position: sticky;
             top: 0;
-            width: 100%;
+            width: 100vw;
             z-index: 1000;
-            display: flex;
-            justify-content: center;
         }
 
         nav ul {
@@ -72,6 +70,7 @@
             padding: 0.5rem 1rem;
             transition: all 0.3s ease-in-out;
             border-radius: 5px;
+            font-size: 1rem; /* Adjust font size */
         }
 
         nav a:hover {
@@ -125,7 +124,7 @@
             text-align: center;
             margin-top: 4rem;
             width: 100vw;
-            min-height: 20vh;
+            min-height: 20vh; /* Ensure footer takes up enough space */
         }
 
         /* Fade-in Scroll Animation */
@@ -204,6 +203,15 @@
             footer {
                 padding: 1rem;
             }
+
+            nav {
+                padding: 0.8rem; /* Reduced padding for mobile */
+            }
+            
+            nav a {
+                font-size: 0.9rem; /* Smaller font size for mobile */
+                padding: 0.4rem 0.8rem; /* Adjusted padding */
+            }
         }
 
         @media (max-width: 768px) {
@@ -256,6 +264,20 @@
             iframe {
                 width: 100%;
                 height: 315px;
+            }
+            
+            nav {
+                padding: 0.5rem; /* Less padding on small screens */
+            }
+            
+            nav ul {
+                flex-direction: row; /* Ensure horizontal layout on very small screens */
+                justify-content: center;
+            }
+            
+            nav a {
+                font-size: 0.8rem; /* Smaller font size for ultra-small screens */
+                padding: 0.4rem 0.6rem; /* Adjust padding further */
             }
         }
     </style>
