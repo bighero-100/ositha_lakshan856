@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLbandara</title>
     <style>
         body {
@@ -25,6 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         header img {
@@ -52,6 +53,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -227,10 +229,6 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 14px; /* Adjust font size for smaller screens */
-            }
-
             .hero {
                 padding: 1.5rem 0.5rem;
             }
@@ -242,6 +240,11 @@
             footer {
                 padding: 0.5rem;
                 font-size: 0.8rem;
+            }
+
+            iframe {
+                width: 100%;
+                height: 315px;
             }
         }
     </style>
@@ -348,7 +351,7 @@
             <h2>YouTube Videos</h2>
             <div class="grid">
                 <div class="card">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/S0V2cgwdOHE" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/S0V2cgwdOHE" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
