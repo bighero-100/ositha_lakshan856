@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLbandara</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(to right, #070807, #f5fcfa);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            position: absolute; /* Position the image absolutely */
+			top: 0; /* Align it to the top of the header */
+			left: 0; /* Align it to the left of the header */
+			max-height: 65px; /* Adjust the height of the logo */
+			margin-right: 1rem;
+        }
+
+        nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1a1c47;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            background: #f1f5f9;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #ebebf2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .schedule {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .schedule h3 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Fade-in Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Style for "Read More" link */
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #545909;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .read-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #99a8a3;
+            transition: all 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .read-more:hover::before {
+            transform: scaleX(1);
+            transform-origin: top left;
+        }
+
+        .read-more:hover {
+            color: #333;
+        }
+
+        .read-more:hover {
+            background: black;
+            color: #b0a0a1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://iili.io/35axVzx.png" alt="Logo"> <!-- Add your logo image here -->
+        <div>
+            <h1>O.L.Bandara</h1>
+            <p>Cultivating Mindfulness, Wisdom, and Compassion</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#teachings">Dhamma Articles</a></li>
+            <li><a href="#import">Important Articles</a></li>
+            <li><a href="#resources">Movies</a></li>
+            <li><a href="#youtube">YouTube Videos</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero reveal">
+        <h2>Welcome to Our Articles site</h2>
+        <p>The website "Lakshan2004 My-Board.org" appears to be a personal blog or an informational platform that shares articles on various topics, including Buddhist teachings, lifestyle tips, biographies, science, technology, and general knowledge. It serves as a hub for educational and thought-provoking content, mixing religious insights with practical advice for everyday life.</p>
+    </section>
+
+    <main>
+        <section id="teachings" class="reveal">
+            <h2>Latest Articles</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>''අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ''</h3>
+                    <p>ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා!...</p>
+                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_1" class="read-more">Read More</a>
+                </div>
+                <div class="card">
+                    <h3>''බුදුරජාණන් වහන්සේ ගේ මහා කරුණාව''</h3>
+                    <p>කරුණාව යනු අනුන් ගේ දුකෙහි දී හදවත කම්පා වීමයි...</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/great-kindness" class="read-more">Read More</a>
+                </div>
+                <div class="card">
+                    <h3>''තුති පූජාව''</h3>
+                    <p>තුති පූජාව මහත් ආනිශංස ගෙන දෙන්නක් ය..</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/2/1_4" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="import" class="reveal">
+            <h2>Important Articles</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>''The Current War''</h3>
+                    <p>මුලින්ම මොකක්ද අපේ විදුලි යුද්ධය එහෙමත් නැතිනම් The Current War කියන්නේ කියන එක ගැන දැනගමු...</p>
+                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_6" class="read-more">Read More</a>
+                </div>
+                <div class="card">
+                    <h3>''කණ්ඩලම වැව් තාවුල්ලේ නිමවූ විශිෂ්ට නිර්මාණය''</h3>
+                    <p>කණ්ඩලම වැව් තාවුල්ලේ නිමවූ ජෙෆ්රි බාවා මහතාගේ විශිෂ්ට නිර්මාණය - (Heritance Kandalama) ☘️😍👣♥️...</p>
+                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other/0_1" class="read-more">Read More</a>
+                </div>
+                <div class="card">
+                    <h3>''උදෑසන ප්‍රමාදයකින් තොරව අවදිවීමට උපක්‍රමයක්''</h3>
+                    <p>බොහෝ දෙනෙක් උදෑසන ප්‍රමාදයකින් තොරව අවදිවීම සඳහා එලාම් එකක් තබා නිදාගන්න ට පුරුදු වෙලා ඉන්නවා...</p>
+                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other/0_2"class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="schedule reveal">
+            <h2>Upcoming Events</h2>
+            <h3>This Week's Schedule</h3>
+            <ul>
+                <li>Monday 7:00 PM - Evening Meditation</li>
+                <li>Wednesday 6:30 PM - Dhamma Discussion</li>
+                <li>Saturday 9:00 AM - Morning Chanting & Meditation</li>
+                <li>Sunday 10:00 AM - Dhamma School for Children</li>
+            </ul>
+        </section>
+
+        <section id="resources" class="reveal">
+            <h2>Learning Resources</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Recorded Sessions</h3>
+                    <p>Access our library of recorded Dhamma talks and meditation sessions.</p>
+                </div>
+                <div class="card">
+                    <h3>Reading Materials</h3>
+                    <p>Download suttas, books, and articles on Buddhist teachings and practice.</p>
+                </div>
+                <div class="card">
+                    <h3>Guided Meditations</h3>
+                    <p>Access our collection of guided meditation recordings for your practice.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="youtube" class="reveal">
+            <h2>YouTube Videos</h2>
+            <div class="grid">
+                <div class="card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/S0V2cgwdOHE" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <h2>Contact Us</h2>
+            <div class="grid">
+                <div class="card">
+                    <p>For inquiries about our programs or to schedule a visit:</p>
+                    <ul>
+                        <li>Email: <a href="mailto:osithalakshan856@gmail.com">osithalakshan856@gmail.com</a></li>
+                        <li>Phone: +94768855659</li>
+                        <li>Address: Sri Lanka,colombo 07</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 All rights reserved.</p>
+        <p>Follow us on social media for daily inspiration and updates</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function revealElements() {
+                let reveals = document.querySelectorAll(".reveal");
+                reveals.forEach((element) => {
+                    let windowHeight = window.innerHeight;
+                    let elementTop = element.getBoundingClientRect().top;
+                    let revealPoint = 100;
+
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add("active");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealElements);
+            revealElements();
+        });
+    </script>
+
+</body>
+</html>
