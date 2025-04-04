@@ -42,7 +42,7 @@
         }
 
         header img {
-            position: right;
+            position: absolute;
             top: 0;
             left: 0;
             max-height: 65px;
@@ -505,6 +505,21 @@
                 height: 40px;
             }
         }
+		
+		.article-card {
+		padding: 15px;
+		margin-bottom: 10px;
+		background: #f7f7f7;
+		border-radius: 10px;
+		font-size: 16px;
+	  }
+
+	  input[type="text"]:focus {
+		border-color: #007BFF;
+		box-shadow: 0 0 5px rgba(0,123,255,0.5);
+		outline: none;
+	  }
+	  
     </style>
 </head>
 <body>
@@ -514,6 +529,10 @@
         <div>
             <h1>Lakshan Bandara</h1>
             <p>"Believe you can and you're halfway there"</p>
+			  <!-- Search Bar -->
+			  <input type="text" id="searchInput" placeholder="Search articles..." 
+					 style="padding: 10px 15px; width: 300px; max-width: 100%; border: 1px solid #ccc; border-radius: 25px; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: all 0.3s;">
+			</div>
         </div>
     </header>
 
@@ -658,7 +677,7 @@
             <div class="page-item">4</div>
             <div class="page-item">→</div>
         </div>
-		
+
         <section class="newsletter">
             <h2>Subscribe to Our Newsletter</h2>
             <p>Get the latest articles, updates, and spiritual insights delivered directly to your inbox.</p>
@@ -718,6 +737,17 @@
 				behavior: 'smooth'
 			});
 		});
+		
+		const searchInput = document.getElementById('searchInput');
+		  const articles = document.querySelectorAll('.article-card');
+
+		  searchInput.addEventListener('input', function () {
+			const value = this.value.toLowerCase();
+			articles.forEach(article => {
+			  const text = article.textContent.toLowerCase();
+			  article.style.display = text.includes(value) ? 'block' : 'none';
+			});
+		  });
 	</script>
 
 	</body>
