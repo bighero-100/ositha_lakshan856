@@ -58,43 +58,7 @@
             font-style: italic;
             margin-top: 0;
         }
-
-        nav {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-bottom: 1px solid #dee2e6;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease-in-out;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        nav a:hover {
-            background: #1a1c47;
-            color: white;
-            transform: scale(1.1);
-        }
-
+		
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -541,79 +505,6 @@
                 height: 40px;
             }
         }
-			/* View Count Badge Styles */
-			.view-count-badge {
-			  display: inline-block;
-			  font-size: 0.8rem;
-			  color: #51849c;
-			  margin-left: 10px;
-			  font-weight: normal;
-			}
-
-			/* Popular Articles Section */
-			.popular-articles {
-			  margin-top: 4rem;
-			  padding: 2rem;
-			  background-color: #f9f9f9;
-			  border-radius: 15px;
-			  animation: fade-in 1s forwards 1.2s;
-			  opacity: 0;
-			}
-
-			.popular-articles h2 {
-			  text-align: center;
-			  margin-bottom: 2rem;
-			}
-
-			.popular-articles ol {
-			  padding-left: 2rem;
-			}
-
-			.popular-articles li {
-			  margin-bottom: 1rem;
-			  transition: transform 0.3s ease;
-			}
-
-			.popular-articles li:hover {
-			  transform: translateX(10px);
-			}
-
-			/* Stats Dashboard */
-			.stats-dashboard {
-			  display: flex;
-			  justify-content: space-around;
-			  padding: 1.5rem;
-			  margin-top: 2rem;
-			  margin-bottom: 2rem;
-			  background-color: white;
-			  border-radius: 10px;
-			  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-			  animation: fade-in 1s forwards 0.5s;
-			  opacity: 0;
-			}
-
-			.stat-item {
-			  text-align: center;
-			  padding: 1rem;
-			  transition: transform 0.3s ease;
-			}
-
-			.stat-item:hover {
-			  transform: translateY(-5px);
-			}
-
-			.stat-number {
-			  font-size: 1.5rem;
-			  font-weight: bold;
-			  margin-bottom: 0.5rem;
-			}
-
-			@media (max-width: 768px) {
-			  .stats-dashboard {
-				flex-direction: column;
-				gap: 1.5rem;
-			  }
-			}
     </style>
 </head>
 <body>
@@ -633,10 +524,10 @@
         </section>
 
         <div class="filters">
-            <button class="filter-btn" onclick="window.location.href='index1.html'">All Articles</button>
+            <button class="filter-btn" onclick="window.location.href='index1.html'">Latest Articles</button>
             <button class="filter-btn" onclick="window.location.href='index2_buddhism.html'">Buddhism</button>
             <button class="filter-btn" onclick="window.location.href='index5_science&tech.html'">Science & Tech</button>
-            <button class="filter-btn" onclick="window.location.href='index4_motivation.html'">Motivation</button>
+            <button class="filter-btn" onclick="window.location.href='index4_motivation.html'">Movies</button>
             <button class="filter-btn" onclick="window.location.href='index3_knowledge.html'">Genaral knowledge</button>
 			<button class="filter-btn" onclick="window.location.href='index6_contact me.html'">Contact Me</button>
         </div>
@@ -761,13 +652,13 @@
         </div>
 
         <div class="pagination">
-            <div class="page-item active">1</div>
-            <a href="index2_articles.html" class="page-item">2</a>
+            <div class="page-item" onclick="window.location.href='index1.html'">1</div>
+            <div class="page-item" onclick="window.location.href='index1copy.html'">2</div>
             <div class="page-item">3</div>
             <div class="page-item">4</div>
             <div class="page-item">→</div>
         </div>
-
+		
         <section class="newsletter">
             <h2>Subscribe to Our Newsletter</h2>
             <p>Get the latest articles, updates, and spiritual insights delivered directly to your inbox.</p>
@@ -828,308 +719,6 @@
 			});
 		});
 	</script>
-	<!-- Article View Counter Script -->
-	<script>
-	  // Article View Counter System
-
-	// Initialize view counts in localStorage if not already present
-	function initializeViewCounts() {
-	  const articles = [
-		{ id: "article-1", title: "අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ", url: "sadaham-arana/dhamma-articles/1/00_1" },
-		{ id: "article-2", title: "බුදුරජාණන් වහන්සේගේ මහා කරුණාව", url: "sadaham-arana/dhamma-articles/1/great-kindness" },
-		{ id: "article-3", title: "අනුහස් පිරුණු සත්‍යක්‍රියාව", url: "sadaham-arana/dhamma-articles/1/sathyakriyawa" },
-		{ id: "article-4", title: "තුති පූජාව", url: "sadaham-arana/dhamma-articles/2/1_4" },
-		{ id: "article-5", title: "සසර පින පතළ කළ අසම සම රූ මහිම", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_02" },
-		{ id: "article-6", title: "සැපතත් සතුටත් ඇත්තේ වෛරය නැති තැනයි", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_04" },
-		{ id: "article-7", title: "මොකක්ද මේ ක්ෂණ සම්පත්තිය?", url: "sadaham-arana/dhamma-articles/1/kshana-sampaththiya" },
-		{ id: "article-8", title: "දෙව් සැප ලැබූ ඡත්ත මානවක දිව්‍යපුත්‍රයා", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_05" },
-		{ id: "article-9", title: "අසිරිමත් ස්වර්ණමාලී මහා සෑ ඉතිහාසයෙන්", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_01" }
-	  ];
-	  
-	  // Check if view counts already exist in localStorage
-	  if (!localStorage.getItem('articleViewCounts')) {
-		// Initialize with random numbers between 100-5000 for testing
-		const initialCounts = {};
-		articles.forEach(article => {
-		  initialCounts[article.id] = Math.floor(Math.random() * 4900) + 100;
-		});
-		
-		localStorage.setItem('articleViewCounts', JSON.stringify(initialCounts));
-	  }
-	  
-	  return articles;
-	}
-
-	// Function to increment view count when an article is viewed
-	function incrementViewCount(articleId) {
-	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
-	  if (counts && counts[articleId]) {
-		counts[articleId]++;
-		localStorage.setItem('articleViewCounts', JSON.stringify(counts));
-	  }
-	  return counts[articleId];
-	}
-
-	// Function to display view count next to article titles
-	function displayViewCounts() {
-	  const articles = initializeViewCounts();
-	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
-	  
-	  articles.forEach(article => {
-		// Find the article title elements
-		const articleTitles = document.querySelectorAll('.article-title');
-		articleTitles.forEach(titleElement => {
-		  if (titleElement.textContent.includes(article.title)) {
-			// Create and append view count badge
-			const viewCountBadge = document.createElement('span');
-			viewCountBadge.className = 'view-count-badge';
-			viewCountBadge.textContent = formatNumber(counts[article.id]) + ' views';
-			
-			// Style the badge
-			viewCountBadge.style.fontSize = '0.8rem';
-			viewCountBadge.style.color = '#51849c';
-			viewCountBadge.style.marginLeft = '10px';
-			viewCountBadge.style.fontWeight = 'normal';
-			viewCountBadge.style.display = 'inline-block';
-			
-			titleElement.appendChild(viewCountBadge);
-		  }
-		});
-	  });
-	  
-	  // Add listeners to "Read More" buttons
-	  const readMoreButtons = document.querySelectorAll('.read-more');
-	  readMoreButtons.forEach((button, index) => {
-		button.addEventListener('click', function(e) {
-		  // Don't prevent default here as we want the link to work
-		  incrementViewCount(`article-${index + 1}`);
-		});
-	  });
-	}
-
-	// Function to format numbers with commas for thousands
-	function formatNumber(num) {
-	  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	}
-
-	// Function to create and display a "Most Popular Articles" section
-	function displayPopularArticles() {
-	  const articles = initializeViewCounts();
-	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
-	  
-	  // Sort articles by view count (descending)
-	  const sortedArticles = [...articles].sort((a, b) => {
-		return counts[b.id] - counts[a.id];
-	  });
-	  
-	  // Get top 5 articles
-	  const topArticles = sortedArticles.slice(0, 5);
-	  
-	  // Create popular articles section
-	  const popularSection = document.createElement('section');
-	  popularSection.className = 'popular-articles';
-	  popularSection.style.marginTop = '4rem';
-	  popularSection.style.padding = '2rem';
-	  popularSection.style.backgroundColor = '#f9f9f9';
-	  popularSection.style.borderRadius = '15px';
-	  
-	  // Add heading
-	  const heading = document.createElement('h2');
-	  heading.textContent = 'Most Popular Articles';
-	  heading.style.textAlign = 'center';
-	  heading.style.marginBottom = '2rem';
-	  popularSection.appendChild(heading);
-	  
-	  // Create list for popular articles
-	  const list = document.createElement('ol');
-	  list.style.paddingLeft = '2rem';
-	  
-	  // Add top articles to the list
-	  topArticles.forEach(article => {
-		const listItem = document.createElement('li');
-		listItem.style.marginBottom = '1rem';
-		
-		const link = document.createElement('a');
-		link.href = `https://www.lakshan2004.my-board.org/${article.url}`;
-		link.textContent = article.title;
-		link.style.textDecoration = 'none';
-		link.style.color = '#333';
-		link.style.fontWeight = '500';
-		
-		const viewCount = document.createElement('span');
-		viewCount.textContent = ` (${formatNumber(counts[article.id])} views)`;
-		viewCount.style.color = '#51849c';
-		viewCount.style.fontSize = '0.9rem';
-		
-		listItem.appendChild(link);
-		listItem.appendChild(viewCount);
-		list.appendChild(listItem);
-	  });
-	  
-	  popularSection.appendChild(list);
-	  
-	  // Insert before the newsletter section
-	  const newsletterSection = document.querySelector('.newsletter');
-	  newsletterSection.parentNode.insertBefore(popularSection, newsletterSection);
-	}
-
-	// Add a numeric counter badge to article cards
-	function addArticleCounters() {
-	  const articleCards = document.querySelectorAll('.article-card');
-	  
-	  articleCards.forEach((card, index) => {
-		const counter = document.createElement('div');
-		counter.className = 'article-counter';
-		counter.textContent = (index + 1).toString().padStart(2, '0');
-		
-		// Style the counter
-		counter.style.position = 'absolute';
-		counter.style.top = '15px';
-		counter.style.right = '15px';
-		counter.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-		counter.style.color = 'white';
-		counter.style.width = '30px';
-		counter.style.height = '30px';
-		counter.style.borderRadius = '50%';
-		counter.style.display = 'flex';
-		counter.style.alignItems = 'center';
-		counter.style.justifyContent = 'center';
-		counter.style.fontWeight = 'bold';
-		counter.style.fontSize = '0.9rem';
-		counter.style.zIndex = '1';
-		
-		// Get the article image div to add the counter to
-		const imageDiv = card.querySelector('.article-image');
-		imageDiv.style.position = 'relative'; // Ensure relative positioning
-		imageDiv.appendChild(counter);
-	  });
-	}
-
-	// Add article stats dashboard
-	function addArticleStatsDashboard() {
-	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
-	  const articles = initializeViewCounts();
-	  
-	  // Calculate total views
-	  let totalViews = 0;
-	  Object.values(counts).forEach(count => {
-		totalViews += count;
-	  });
-	  
-	  // Find most popular article
-	  let mostPopularId = '';
-	  let maxViews = 0;
-	  
-	  Object.entries(counts).forEach(([id, count]) => {
-		if (count > maxViews) {
-		  maxViews = count;
-		  mostPopularId = id;
-		}
-	  });
-	  
-	  const mostPopularArticle = articles.find(article => article.id === mostPopularId);
-	  
-	  // Create stats dashboard
-	  const dashboard = document.createElement('div');
-	  dashboard.className = 'stats-dashboard';
-	  dashboard.style.display = 'flex';
-	  dashboard.style.justifyContent = 'space-around';
-	  dashboard.style.padding = '1.5rem';
-	  dashboard.style.marginTop = '2rem';
-	  dashboard.style.backgroundColor = 'white';
-	  dashboard.style.borderRadius = '10px';
-	  dashboard.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-	  
-	  // Add total views stat
-	  const totalViewsDiv = document.createElement('div');
-	  totalViewsDiv.className = 'stat-item';
-	  totalViewsDiv.style.textAlign = 'center';
-	  
-	  const totalViewsIcon = document.createElement('div');
-	  totalViewsIcon.innerHTML = '👁️';
-	  totalViewsIcon.style.fontSize = '2rem';
-	  totalViewsIcon.style.marginBottom = '0.5rem';
-	  
-	  const totalViewsNumber = document.createElement('div');
-	  totalViewsNumber.className = 'stat-number';
-	  totalViewsNumber.textContent = formatNumber(totalViews);
-	  totalViewsNumber.style.fontSize = '1.5rem';
-	  totalViewsNumber.style.fontWeight = 'bold';
-	  
-	  const totalViewsLabel = document.createElement('div');
-	  totalViewsLabel.textContent = 'Total Views';
-	  totalViewsLabel.style.color = '#666';
-	  
-	  totalViewsDiv.appendChild(totalViewsIcon);
-	  totalViewsDiv.appendChild(totalViewsNumber);
-	  totalViewsDiv.appendChild(totalViewsLabel);
-	  
-	  // Add article count stat
-	  const articleCountDiv = document.createElement('div');
-	  articleCountDiv.className = 'stat-item';
-	  articleCountDiv.style.textAlign = 'center';
-	  
-	  const articleCountIcon = document.createElement('div');
-	  articleCountIcon.innerHTML = '📝';
-	  articleCountIcon.style.fontSize = '2rem';
-	  articleCountIcon.style.marginBottom = '0.5rem';
-	  
-	  const articleCountNumber = document.createElement('div');
-	  articleCountNumber.className = 'stat-number';
-	  articleCountNumber.textContent = articles.length;
-	  articleCountNumber.style.fontSize = '1.5rem';
-	  articleCountNumber.style.fontWeight = 'bold';
-	  
-	  const articleCountLabel = document.createElement('div');
-	  articleCountLabel.textContent = 'Published Articles';
-	  articleCountLabel.style.color = '#666';
-	  
-	  articleCountDiv.appendChild(articleCountIcon);
-	  articleCountDiv.appendChild(articleCountNumber);
-	  articleCountDiv.appendChild(articleCountLabel);
-	  
-	  // Add most popular article stat
-	  const popularArticleDiv = document.createElement('div');
-	  popularArticleDiv.className = 'stat-item';
-	  popularArticleDiv.style.textAlign = 'center';
-	  
-	  const popularArticleIcon = document.createElement('div');
-	  popularArticleIcon.innerHTML = '🏆';
-	  popularArticleIcon.style.fontSize = '2rem';
-	  popularArticleIcon.style.marginBottom = '0.5rem';
-	  
-	  const popularArticleNumber = document.createElement('div');
-	  popularArticleNumber.className = 'stat-number';
-	  popularArticleNumber.textContent = formatNumber(maxViews) + ' views';
-	  popularArticleNumber.style.fontSize = '1.5rem';
-	  popularArticleNumber.style.fontWeight = 'bold';
-	  
-	  const popularArticleLabel = document.createElement('div');
-	  popularArticleLabel.textContent = 'Most Popular Article';
-	  popularArticleLabel.style.color = '#666';
-	  
-	  popularArticleDiv.appendChild(popularArticleIcon);
-	  popularArticleDiv.appendChild(popularArticleNumber);
-	  popularArticleDiv.appendChild(popularArticleLabel);
-	  
-	  // Add all stats to dashboard
-	  dashboard.appendChild(totalViewsDiv);
-	  dashboard.appendChild(articleCountDiv);
-	  dashboard.appendChild(popularArticleDiv);
-	  
-	  // Insert at the top of the main content, right after page title
-	  const pageTitle = document.querySelector('.page-title');
-	  pageTitle.insertAdjacentElement('afterend', dashboard);
-	}
-
-	// Run all functions when the DOM is fully loaded
-	document.addEventListener('DOMContentLoaded', function() {
-	  displayViewCounts();
-	  addArticleCounters();
-	  displayPopularArticles();
-	  addArticleStatsDashboard();
-	});
-		</script>
 
 	</body>
 	</html>
