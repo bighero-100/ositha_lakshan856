@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lakshan Bandara's articles - Buddhist teachings, lifestyle tips, and more">
-    <title>Lakshan Bandara - buddhism</title>
+    <title>Lakshan Bandara - Articles</title>
     <!-- Favicon link -->
     <link rel="icon" href="https://iili.io/35Gp7st.jpg" type="image/x-icon">
     <style>
@@ -179,13 +179,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
-
-        .filter-btn.active {
-            background: linear-gradient(to right, #6f98e8, #e4e86f);
-            color: white;
-            border-color: transparent;
-        }
-
+		
         /* Articles grid with masonry layout */
         .articles-grid {
             display: grid;
@@ -547,6 +541,79 @@
                 height: 40px;
             }
         }
+			/* View Count Badge Styles */
+			.view-count-badge {
+			  display: inline-block;
+			  font-size: 0.8rem;
+			  color: #51849c;
+			  margin-left: 10px;
+			  font-weight: normal;
+			}
+
+			/* Popular Articles Section */
+			.popular-articles {
+			  margin-top: 4rem;
+			  padding: 2rem;
+			  background-color: #f9f9f9;
+			  border-radius: 15px;
+			  animation: fade-in 1s forwards 1.2s;
+			  opacity: 0;
+			}
+
+			.popular-articles h2 {
+			  text-align: center;
+			  margin-bottom: 2rem;
+			}
+
+			.popular-articles ol {
+			  padding-left: 2rem;
+			}
+
+			.popular-articles li {
+			  margin-bottom: 1rem;
+			  transition: transform 0.3s ease;
+			}
+
+			.popular-articles li:hover {
+			  transform: translateX(10px);
+			}
+
+			/* Stats Dashboard */
+			.stats-dashboard {
+			  display: flex;
+			  justify-content: space-around;
+			  padding: 1.5rem;
+			  margin-top: 2rem;
+			  margin-bottom: 2rem;
+			  background-color: white;
+			  border-radius: 10px;
+			  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			  animation: fade-in 1s forwards 0.5s;
+			  opacity: 0;
+			}
+
+			.stat-item {
+			  text-align: center;
+			  padding: 1rem;
+			  transition: transform 0.3s ease;
+			}
+
+			.stat-item:hover {
+			  transform: translateY(-5px);
+			}
+
+			.stat-number {
+			  font-size: 1.5rem;
+			  font-weight: bold;
+			  margin-bottom: 0.5rem;
+			}
+
+			@media (max-width: 768px) {
+			  .stats-dashboard {
+				flex-direction: column;
+				gap: 1.5rem;
+			  }
+			}
     </style>
 </head>
 <body>
@@ -559,30 +626,19 @@
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#dhamma">Dhamma Articles</a></li>
-            <li><a href="#lifestyle">Lifestyle</a></li>
-            <li><a href="#science">Science & Tech</a></li>
-            <li><a href="#knowledge">Knowledge</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-    </nav>
-
     <main>
         <section class="page-title">
-            <h1>Dhamma Articles</h1>
-            <p>Discover a collection of thought-provoking articles on Buddhism.</p>
+            <h1>Explore Articles</h1>
+            <p>Discover a collection of thought-provoking articles on Buddhism, lifestyle, science, technology, and more. Expand your knowledge and find inspiration.</p>
         </section>
 
         <div class="filters">
-            <button class="filter-btn active">All Articles</button>
-            <button class="filter-btn">Buddhism</button>
-            <button class="filter-btn">Lifestyle</button>
-            <button class="filter-btn">Science & Tech</button>
-            <button class="filter-btn">Motivation</button>
-            <button class="filter-btn">General Knowledge</button>
+            <button class="filter-btn" onclick="window.location.href='index1.html'">All Articles</button>
+            <button class="filter-btn" onclick="window.location.href='index2_buddhism.html'">Buddhism</button>
+            <button class="filter-btn" onclick="window.location.href='index5_science&tech.html'">Science & Tech</button>
+            <button class="filter-btn" onclick="window.location.href='index4_motivation.html'">Motivation</button>
+            <button class="filter-btn" onclick="window.location.href='index3_knowledge.html'">Genaral knowledge</button>
+			<button class="filter-btn" onclick="window.location.href='index6_contact me.html'">Contact Me</button>
         </div>
 
         <div class="articles-grid">
@@ -601,7 +657,7 @@
 
             <!-- Article 2 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/D4KhVYdGq5i6kpgF1M-4St19gBC3cmlV3oLELXqKLzgDvL8BvEwgloYuH-s-yXWHYN-ZqyPM_kgtqfWoeojWgS-TuDA9P0VUjc-_YnHXyjVEnTDc2eLY6V9kfxXVcwGleQ=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Buddhism</span>
                 </div>
                 <div class="article-content">
@@ -614,7 +670,7 @@
 
             <!-- Article 3 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/966rswsIpAmW1IJq3nOwzkseosbDY6JEZTPU8zNgwBFqQRRm7_SxuVhEZ0oy3VXkivgQ9b9iXkea7WW2ToZJ0MUFrcY4KmNPU31h3YeFWFRxwHS_RsNZsG3gTzn556fcWw=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Buddhism</span>
                 </div>
                 <div class="article-content">
@@ -640,7 +696,7 @@
 
             <!-- Article 5 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh5.googleusercontent.com/dnjL5J2wxEXXese65QNaE-JB9_cXGus1kN4hZ9MFT9CBApi8nyJSFqJKqW9yM9m1p77Riqc6rQpAbUxi3ZxTuNB9zFxJfK64MZSmYQOQ81p14480MbAEOHhEKPxgO0HEbw=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Buddhism</span>
                 </div>
                 <div class="article-content">
@@ -653,7 +709,7 @@
 
             <!-- Article 6 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh4.googleusercontent.com/VIQqQBZEVjstQqpwGF9DMpF7mW5yy9crIfsp_ujjWeYlQArxqI1uAJc2LOQip2qTMXTdwYF3I9D-sLjIRLENWfrVl21rprRAvrLiyxT6sh3e5q7v1Hlnl8fP2xydbxdi=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Lifestyle</span>
                 </div>
                 <div class="article-content">
@@ -666,7 +722,7 @@
 
             <!-- Article 7 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/awBvCgvn_kB_0l708iSLmO7MLdZyKxdRFiKAynrAx3JLcWUK8gQY5_2IXpJxn-Jip0mdcssH37VXQ7dob8bcDT7CPbHE2o0xlWu1N3ynjIgMZh0F0UR7SFwpHuPt6F2z4Q=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Buddhism</span>
                 </div>
                 <div class="article-content">
@@ -679,7 +735,7 @@
 
             <!-- Article 8 -->
             <div class="article-card">
-                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/4_qnZBZmJj70389S5cRkcy8xj7L4yHbeFj1zaEde1Heym7QK7He2_K4T6MpJM6R640i-d8_yhUCvGA8am4z1doUsTdUVGxItqfab_58IfqwJaLRfYdo_d5uaFbxqWI0P4w=w1280')">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
                     <span class="article-category">Buddhism</span>
                 </div>
                 <div class="article-content">
@@ -725,8 +781,355 @@
     <div class="back-to-top">↑</div>
 
     <footer>
-        <p>© 2025 Lakshan Bandara. All rights reserved.</p>
-        <p>Follow us on social media for daily inspiration and updates</p>
-        
-        <div class="social-icons">
-            <a href="https://wa.me/+94768855659" target="_blank
+		<p>© 2025 Lakshan Bandara. All rights reserved.</p>
+		<p>Follow us on social media for daily inspiration and updates</p>
+		
+		<div class="social-icons">
+			<a href="https://wa.me/+94768855659" target="_blank">
+				<img src="https://cdn.cdnlogo.com/logos/w/29/whatsapp-icon.svg" alt="WhatsApp">
+			</a>
+			<a href="https://www.facebook.com/lakshan.bandara" target="_blank">
+				<img src="https://cdn.cdnlogo.com/logos/f/91/facebook-icon.svg" alt="Facebook">
+			</a>
+			<a href="https://www.instagram.com/lakshan_bandara/" target="_blank">
+				<img src="https://cdn.cdnlogo.com/logos/i/92/instagram.svg" alt="Instagram">
+			</a>
+			<a href="https://twitter.com/lakshanbandara" target="_blank">
+				<img src="https://cdn.cdnlogo.com/logos/t/96/twitter-icon.svg" alt="Twitter">
+			</a>
+			<a href="https://www.youtube.com/channel/lakshanbandara" target="_blank">
+				<img src="https://cdn.cdnlogo.com/logos/y/57/youtube-icon.svg" alt="YouTube">
+			</a>
+		</div>
+		<p class="footer-links">
+			<a href="index6_contact me.html">Contact</a> | 
+			<a href="privacy-policy.html">Privacy Policy</a> | 
+			<a href="terms-of-service.html">Terms of Service</a>
+		</p>
+	</footer>
+
+	<!-- Back to top button script -->
+	<script>
+		// Back to top button functionality
+		const backToTopButton = document.querySelector('.back-to-top');
+		
+		window.addEventListener('scroll', () => {
+			if (window.pageYOffset > 300) {
+				backToTopButton.classList.add('visible');
+			} else {
+				backToTopButton.classList.remove('visible');
+			}
+		});
+		
+		backToTopButton.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+	</script>
+	<!-- Article View Counter Script -->
+	<script>
+	  // Article View Counter System
+
+	// Initialize view counts in localStorage if not already present
+	function initializeViewCounts() {
+	  const articles = [
+		{ id: "article-1", title: "අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ", url: "sadaham-arana/dhamma-articles/1/00_1" },
+		{ id: "article-2", title: "බුදුරජාණන් වහන්සේගේ මහා කරුණාව", url: "sadaham-arana/dhamma-articles/1/great-kindness" },
+		{ id: "article-3", title: "අනුහස් පිරුණු සත්‍යක්‍රියාව", url: "sadaham-arana/dhamma-articles/1/sathyakriyawa" },
+		{ id: "article-4", title: "තුති පූජාව", url: "sadaham-arana/dhamma-articles/2/1_4" },
+		{ id: "article-5", title: "සසර පින පතළ කළ අසම සම රූ මහිම", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_02" },
+		{ id: "article-6", title: "සැපතත් සතුටත් ඇත්තේ වෛරය නැති තැනයි", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_04" },
+		{ id: "article-7", title: "මොකක්ද මේ ක්ෂණ සම්පත්තිය?", url: "sadaham-arana/dhamma-articles/1/kshana-sampaththiya" },
+		{ id: "article-8", title: "දෙව් සැප ලැබූ ඡත්ත මානවක දිව්‍යපුත්‍රයා", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_05" },
+		{ id: "article-9", title: "අසිරිමත් ස්වර්ණමාලී මහා සෑ ඉතිහාසයෙන්", url: "sadaham-arana/dhamma-articles/1/sitha_niwana_01" }
+	  ];
+	  
+	  // Check if view counts already exist in localStorage
+	  if (!localStorage.getItem('articleViewCounts')) {
+		// Initialize with random numbers between 100-5000 for testing
+		const initialCounts = {};
+		articles.forEach(article => {
+		  initialCounts[article.id] = Math.floor(Math.random() * 4900) + 100;
+		});
+		
+		localStorage.setItem('articleViewCounts', JSON.stringify(initialCounts));
+	  }
+	  
+	  return articles;
+	}
+
+	// Function to increment view count when an article is viewed
+	function incrementViewCount(articleId) {
+	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
+	  if (counts && counts[articleId]) {
+		counts[articleId]++;
+		localStorage.setItem('articleViewCounts', JSON.stringify(counts));
+	  }
+	  return counts[articleId];
+	}
+
+	// Function to display view count next to article titles
+	function displayViewCounts() {
+	  const articles = initializeViewCounts();
+	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
+	  
+	  articles.forEach(article => {
+		// Find the article title elements
+		const articleTitles = document.querySelectorAll('.article-title');
+		articleTitles.forEach(titleElement => {
+		  if (titleElement.textContent.includes(article.title)) {
+			// Create and append view count badge
+			const viewCountBadge = document.createElement('span');
+			viewCountBadge.className = 'view-count-badge';
+			viewCountBadge.textContent = formatNumber(counts[article.id]) + ' views';
+			
+			// Style the badge
+			viewCountBadge.style.fontSize = '0.8rem';
+			viewCountBadge.style.color = '#51849c';
+			viewCountBadge.style.marginLeft = '10px';
+			viewCountBadge.style.fontWeight = 'normal';
+			viewCountBadge.style.display = 'inline-block';
+			
+			titleElement.appendChild(viewCountBadge);
+		  }
+		});
+	  });
+	  
+	  // Add listeners to "Read More" buttons
+	  const readMoreButtons = document.querySelectorAll('.read-more');
+	  readMoreButtons.forEach((button, index) => {
+		button.addEventListener('click', function(e) {
+		  // Don't prevent default here as we want the link to work
+		  incrementViewCount(`article-${index + 1}`);
+		});
+	  });
+	}
+
+	// Function to format numbers with commas for thousands
+	function formatNumber(num) {
+	  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	// Function to create and display a "Most Popular Articles" section
+	function displayPopularArticles() {
+	  const articles = initializeViewCounts();
+	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
+	  
+	  // Sort articles by view count (descending)
+	  const sortedArticles = [...articles].sort((a, b) => {
+		return counts[b.id] - counts[a.id];
+	  });
+	  
+	  // Get top 5 articles
+	  const topArticles = sortedArticles.slice(0, 5);
+	  
+	  // Create popular articles section
+	  const popularSection = document.createElement('section');
+	  popularSection.className = 'popular-articles';
+	  popularSection.style.marginTop = '4rem';
+	  popularSection.style.padding = '2rem';
+	  popularSection.style.backgroundColor = '#f9f9f9';
+	  popularSection.style.borderRadius = '15px';
+	  
+	  // Add heading
+	  const heading = document.createElement('h2');
+	  heading.textContent = 'Most Popular Articles';
+	  heading.style.textAlign = 'center';
+	  heading.style.marginBottom = '2rem';
+	  popularSection.appendChild(heading);
+	  
+	  // Create list for popular articles
+	  const list = document.createElement('ol');
+	  list.style.paddingLeft = '2rem';
+	  
+	  // Add top articles to the list
+	  topArticles.forEach(article => {
+		const listItem = document.createElement('li');
+		listItem.style.marginBottom = '1rem';
+		
+		const link = document.createElement('a');
+		link.href = `https://www.lakshan2004.my-board.org/${article.url}`;
+		link.textContent = article.title;
+		link.style.textDecoration = 'none';
+		link.style.color = '#333';
+		link.style.fontWeight = '500';
+		
+		const viewCount = document.createElement('span');
+		viewCount.textContent = ` (${formatNumber(counts[article.id])} views)`;
+		viewCount.style.color = '#51849c';
+		viewCount.style.fontSize = '0.9rem';
+		
+		listItem.appendChild(link);
+		listItem.appendChild(viewCount);
+		list.appendChild(listItem);
+	  });
+	  
+	  popularSection.appendChild(list);
+	  
+	  // Insert before the newsletter section
+	  const newsletterSection = document.querySelector('.newsletter');
+	  newsletterSection.parentNode.insertBefore(popularSection, newsletterSection);
+	}
+
+	// Add a numeric counter badge to article cards
+	function addArticleCounters() {
+	  const articleCards = document.querySelectorAll('.article-card');
+	  
+	  articleCards.forEach((card, index) => {
+		const counter = document.createElement('div');
+		counter.className = 'article-counter';
+		counter.textContent = (index + 1).toString().padStart(2, '0');
+		
+		// Style the counter
+		counter.style.position = 'absolute';
+		counter.style.top = '15px';
+		counter.style.right = '15px';
+		counter.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+		counter.style.color = 'white';
+		counter.style.width = '30px';
+		counter.style.height = '30px';
+		counter.style.borderRadius = '50%';
+		counter.style.display = 'flex';
+		counter.style.alignItems = 'center';
+		counter.style.justifyContent = 'center';
+		counter.style.fontWeight = 'bold';
+		counter.style.fontSize = '0.9rem';
+		counter.style.zIndex = '1';
+		
+		// Get the article image div to add the counter to
+		const imageDiv = card.querySelector('.article-image');
+		imageDiv.style.position = 'relative'; // Ensure relative positioning
+		imageDiv.appendChild(counter);
+	  });
+	}
+
+	// Add article stats dashboard
+	function addArticleStatsDashboard() {
+	  const counts = JSON.parse(localStorage.getItem('articleViewCounts'));
+	  const articles = initializeViewCounts();
+	  
+	  // Calculate total views
+	  let totalViews = 0;
+	  Object.values(counts).forEach(count => {
+		totalViews += count;
+	  });
+	  
+	  // Find most popular article
+	  let mostPopularId = '';
+	  let maxViews = 0;
+	  
+	  Object.entries(counts).forEach(([id, count]) => {
+		if (count > maxViews) {
+		  maxViews = count;
+		  mostPopularId = id;
+		}
+	  });
+	  
+	  const mostPopularArticle = articles.find(article => article.id === mostPopularId);
+	  
+	  // Create stats dashboard
+	  const dashboard = document.createElement('div');
+	  dashboard.className = 'stats-dashboard';
+	  dashboard.style.display = 'flex';
+	  dashboard.style.justifyContent = 'space-around';
+	  dashboard.style.padding = '1.5rem';
+	  dashboard.style.marginTop = '2rem';
+	  dashboard.style.backgroundColor = 'white';
+	  dashboard.style.borderRadius = '10px';
+	  dashboard.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+	  
+	  // Add total views stat
+	  const totalViewsDiv = document.createElement('div');
+	  totalViewsDiv.className = 'stat-item';
+	  totalViewsDiv.style.textAlign = 'center';
+	  
+	  const totalViewsIcon = document.createElement('div');
+	  totalViewsIcon.innerHTML = '👁️';
+	  totalViewsIcon.style.fontSize = '2rem';
+	  totalViewsIcon.style.marginBottom = '0.5rem';
+	  
+	  const totalViewsNumber = document.createElement('div');
+	  totalViewsNumber.className = 'stat-number';
+	  totalViewsNumber.textContent = formatNumber(totalViews);
+	  totalViewsNumber.style.fontSize = '1.5rem';
+	  totalViewsNumber.style.fontWeight = 'bold';
+	  
+	  const totalViewsLabel = document.createElement('div');
+	  totalViewsLabel.textContent = 'Total Views';
+	  totalViewsLabel.style.color = '#666';
+	  
+	  totalViewsDiv.appendChild(totalViewsIcon);
+	  totalViewsDiv.appendChild(totalViewsNumber);
+	  totalViewsDiv.appendChild(totalViewsLabel);
+	  
+	  // Add article count stat
+	  const articleCountDiv = document.createElement('div');
+	  articleCountDiv.className = 'stat-item';
+	  articleCountDiv.style.textAlign = 'center';
+	  
+	  const articleCountIcon = document.createElement('div');
+	  articleCountIcon.innerHTML = '📝';
+	  articleCountIcon.style.fontSize = '2rem';
+	  articleCountIcon.style.marginBottom = '0.5rem';
+	  
+	  const articleCountNumber = document.createElement('div');
+	  articleCountNumber.className = 'stat-number';
+	  articleCountNumber.textContent = articles.length;
+	  articleCountNumber.style.fontSize = '1.5rem';
+	  articleCountNumber.style.fontWeight = 'bold';
+	  
+	  const articleCountLabel = document.createElement('div');
+	  articleCountLabel.textContent = 'Published Articles';
+	  articleCountLabel.style.color = '#666';
+	  
+	  articleCountDiv.appendChild(articleCountIcon);
+	  articleCountDiv.appendChild(articleCountNumber);
+	  articleCountDiv.appendChild(articleCountLabel);
+	  
+	  // Add most popular article stat
+	  const popularArticleDiv = document.createElement('div');
+	  popularArticleDiv.className = 'stat-item';
+	  popularArticleDiv.style.textAlign = 'center';
+	  
+	  const popularArticleIcon = document.createElement('div');
+	  popularArticleIcon.innerHTML = '🏆';
+	  popularArticleIcon.style.fontSize = '2rem';
+	  popularArticleIcon.style.marginBottom = '0.5rem';
+	  
+	  const popularArticleNumber = document.createElement('div');
+	  popularArticleNumber.className = 'stat-number';
+	  popularArticleNumber.textContent = formatNumber(maxViews) + ' views';
+	  popularArticleNumber.style.fontSize = '1.5rem';
+	  popularArticleNumber.style.fontWeight = 'bold';
+	  
+	  const popularArticleLabel = document.createElement('div');
+	  popularArticleLabel.textContent = 'Most Popular Article';
+	  popularArticleLabel.style.color = '#666';
+	  
+	  popularArticleDiv.appendChild(popularArticleIcon);
+	  popularArticleDiv.appendChild(popularArticleNumber);
+	  popularArticleDiv.appendChild(popularArticleLabel);
+	  
+	  // Add all stats to dashboard
+	  dashboard.appendChild(totalViewsDiv);
+	  dashboard.appendChild(articleCountDiv);
+	  dashboard.appendChild(popularArticleDiv);
+	  
+	  // Insert at the top of the main content, right after page title
+	  const pageTitle = document.querySelector('.page-title');
+	  pageTitle.insertAdjacentElement('afterend', dashboard);
+	}
+
+	// Run all functions when the DOM is fully loaded
+	document.addEventListener('DOMContentLoaded', function() {
+	  displayViewCounts();
+	  addArticleCounters();
+	  displayPopularArticles();
+	  addArticleStatsDashboard();
+	});
+		</script>
+
+	</body>
+	</html>
