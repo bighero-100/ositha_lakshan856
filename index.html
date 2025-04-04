@@ -104,7 +104,7 @@
             width: 100%; /* Full width */
 			max-width: 600px; /* Optional: Limits width on larger screens */
 			margin: auto; /* Centers it */
-			padding: 1rem;
+			padding: 3rem;
 			background: #fff;
 			border-radius: 10px;
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -184,7 +184,7 @@
             }
 
             .hero {
-				padding: 2rem 1rem; /* Reduce padding on smaller screens */
+                padding: 2rem 1rem;
             }
 
             nav ul {
@@ -206,23 +206,37 @@
         }
 
         @media (max-width: 768px) {
-            .hero {
-				padding: 1rem; /* Reduce space */
-			}
-			
-			.card {
-				width: 90%;
-				padding: 1rem;
-			}
+            header {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
 
-			.hero h2 {
-				font-size: 20px; /* Adjust heading size */
-			}
-			
-			.hero p {
-				font-size: 14px;
-			}
-		}
+            header img {
+                margin-bottom: 1rem;
+                max-height: 40px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            footer {
+                padding: 1rem;
+            }
+        }
 
         @media (max-width: 480px) {
             .hero {
