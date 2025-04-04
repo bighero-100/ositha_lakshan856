@@ -294,6 +294,8 @@
 
 		.carousel-track .card {
 		  min-width: 250px;
+		  max-width: 250px;       /* Fixed width */
+		  height: 400px;           /* Fixed height */
 		  background: white;
 		  border-radius: 15px;
 		  padding: 1rem;
@@ -302,6 +304,19 @@
 		  text-align: center;
 		  font-size: 18px;
 		  font-weight: bold;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center; /* Center content vertically */
+		  align-items: center;     /* Center content horizontally */
+		  overflow: hidden;        /* Hide overflow if content is too much */
+		}
+		
+		.card p {
+		  display: -webkit-box;
+		  -webkit-line-clamp: 4; /* Max lines shown */
+		  -webkit-box-orient: vertical;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
 		}
 
     </style>
