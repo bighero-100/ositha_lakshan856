@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lakshan Bandara's personal blog sharing articles on Buddhism, lifestyle, science, and more">
-    <title>Lakshan Bandara</title>
+    <meta name="description" content="Lakshan Bandara's articles - Buddhist teachings, lifestyle tips, and more">
+    <title>Lakshan Bandara - buddhism</title>
     <!-- Favicon link -->
     <link rel="icon" href="https://iili.io/35Gp7st.jpg" type="image/x-icon">
     <style>
@@ -19,6 +19,7 @@
             padding: 0;
             color: #333;
             overflow-x: hidden;
+            background-color: #fafafa;
         }
 
         html {
@@ -41,7 +42,7 @@
         }
 
         header img {
-            position: absolute;
+            position: right;
             top: 0;
             left: 0;
             max-height: 65px;
@@ -94,57 +95,353 @@
             transform: scale(1.1);
         }
 
-        .hero {
-            background: transparent;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        .grid {
+        /* Page title section with animation */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .page-title h1 {
+            position: relative;
+            display: inline-block;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: linear-gradient(to right, #6f98e8, #e4e86f);
+            animation: extend-line 1.5s forwards ease-out;
+        }
+
+        @keyframes extend-line {
+            to {
+                width: 80%;
+            }
+        }
+
+        .page-title p {
+            max-width: 600px;
+            margin: 1rem auto;
+            color: #666;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-up 1s forwards ease-out 0.5s;
+        }
+
+        @keyframes fade-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Filter section */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fade-in 1s forwards 0.8s;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: #6f98e8;
+            color: #6f98e8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(to right, #6f98e8, #e4e86f);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Articles grid with masonry layout */
+        .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .card {
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-up 0.8s forwards;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-image {
             width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transition: all 0.6s ease;
+        }
+
+        .article-card:hover .article-image::before {
+            left: 100%;
+        }
+
+        .article-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #545909;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-date {
+            color: #51849c;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .article-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #545909;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            align-self: flex-start;
+            overflow: hidden;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: black;
+            color: #b0a0a1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add arrow to the "Read More" button */
+        .read-more::after {
+            content: ' →';
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fade-in 1s forwards 1.2s;
+        }
+
+        .page-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .page-item:hover {
+            border-color: #6f98e8;
+            color: #6f98e8;
+            transform: scale(1.1);
+        }
+
+        .page-item.active {
+            background: linear-gradient(to right, #6f98e8, #e4e86f);
+            color: white;
+            border: none;
+        }
+
+        /* Newsletter section */
+        .newsletter {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(to right, rgba(111, 152, 232, 0.1), rgba(228, 232, 111, 0.1));
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0;
+            animation: fade-in 1s forwards 1s;
+        }
+
+        .newsletter h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
             max-width: 600px;
-            margin: auto;
-            padding: 1rem;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 auto 1.5rem;
+            color: #666;
         }
 
-        .card:hover {
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            padding: 0.8rem 1.5rem;
+            background: #545909;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Fade-in animation */
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Staggered animation for cards */
+        .article-card:nth-child(1) { animation-delay: 0.2s; }
+        .article-card:nth-child(2) { animation-delay: 0.4s; }
+        .article-card:nth-child(3) { animation-delay: 0.6s; }
+        .article-card:nth-child(4) { animation-delay: 0.8s; }
+        .article-card:nth-child(5) { animation-delay: 1.0s; }
+        .article-card:nth-child(6) { animation-delay: 1.2s; }
+        .article-card:nth-child(7) { animation-delay: 1.4s; }
+        .article-card:nth-child(8) { animation-delay: 1.6s; }
+        .article-card:nth-child(9) { animation-delay: 1.8s; }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, #6f98e8, #e4e86f);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .schedule {
-            background: #fff;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .schedule h3 {
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .schedule ul {
-            padding-left: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -166,146 +463,6 @@
             text-decoration: underline;
         }
 
-        /* Fade-in Scroll Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Style for "Read More" link */
-        .read-more {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #545909;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s ease;
-        }
-
-        .read-more:hover {
-            background: black;
-            color: #b0a0a1;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Add arrow to the "Read More" button */
-        .read-more::after {
-            content: ' →';
-            font-weight: bold;
-            margin-left: 0.5rem;
-        }
-
-        /* Unified card styles */
-        .feature-card {
-            border: 2px solid transparent;
-            padding: 15px;
-            margin: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            text-align: center;
-            background-color: #f9f9f9;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            transform: scale(1);
-            border-radius: 10px;
-        }
-
-        .feature-card:hover {
-            border-color: #c90495;
-            transform: scale(1.05);
-            box-shadow: 
-                0 0 20px rgba(0, 0, 255, 0.6),
-                0 0 20px rgba(255, 105, 180, 0.6),
-                0 0 20px rgba(0, 255, 0, 0.6),
-                0 0 20px rgba(255, 255, 0, 0.6);
-        }
-
-        .card h3 {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .accent-text {
-            font-size: 14px;
-            color: #750f6e;
-            font-weight: bold;
-        }
-
-        .date-text {
-            font-size: 14px;
-            color: #51849c;
-            font-weight: normal;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Carousel styles */
-        .carousel-container {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 2rem;
-            animation: scroll-left 90s linear infinite;
-            width: max-content;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .carousel-track .card {
-            min-width: 250px;
-            max-width: 250px;
-            height: 350px;
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            flex-shrink: 0;
-            text-align: center;
-            font-size: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* Social media icons */
         .social-icons {
             margin-top: 10px;
             display: flex;
@@ -330,33 +487,8 @@
 
         /* Media Queries for responsiveness */
         @media (max-width: 1200px) {
-            .grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            header img {
-                max-height: 50px;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            footer {
-                padding: 1rem;
-            }
-
-            nav {
-                padding: 0.8rem;
-            }
-            
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
+            .articles-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -372,72 +504,47 @@
                 max-height: 40px;
             }
 
-            .grid {
-                grid-template-columns: 1fr;
+            .articles-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
 
-            .card {
-                padding: 1rem;
-            }
-
-            .hero {
+            .newsletter {
                 padding: 2rem 1rem;
             }
 
-            nav ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-                justify-content: center;
+            .newsletter-form {
+                flex-direction: column;
             }
 
-            footer {
-                padding: 1rem;
-            }
-
-            .carousel-track .card {
-                min-width: 220px;
-                height: 320px;
+            .newsletter-btn {
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 1.5rem 0.5rem;
+            .articles-grid {
+                grid-template-columns: 1fr;
             }
 
-            nav ul {
-                gap: 0.5rem;
+            .page-title h1 {
+                font-size: 2rem;
             }
 
-            footer {
-                padding: 0.5rem;
-                font-size: 0.8rem;
+            .filters {
+                flex-direction: column;
+                align-items: center;
             }
 
-            iframe {
+            .filter-btn {
                 width: 100%;
-                height: 250px;
-            }
-            
-            nav {
-                padding: 0.5rem;
-            }
-            
-            nav a {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.6rem;
+                text-align: center;
             }
 
-            .carousel-track .card {
-                min-width: 200px;
-                height: 300px;
-                font-size: 13px;
-            }
-
-            .read-more {
-                padding: 0.4rem 0.8rem;
-                font-size: 13px;
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -454,231 +561,172 @@
 
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#teachings">Dhamma Articles</a></li>
-            <li><a href="#import">Important Articles</a></li>
-            <li><a href="#resources">Movies</a></li>
-            <li><a href="#youtube">YouTube Videos</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#dhamma">Dhamma Articles</a></li>
+            <li><a href="#lifestyle">Lifestyle</a></li>
+            <li><a href="#science">Science & Tech</a></li>
+            <li><a href="#knowledge">Knowledge</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
         </ul>
     </nav>
-	
-    <section class="hero reveal">
-        <h2>Welcome 😀</h2>
-        <div class="card">
-            <p class="accent-text">This Blog is an informational platform that shares articles on various topics, including Buddhist Articles, lifestyle tips, biographies, science, technology, and general knowledge.</p>
-        </div>
-    </section>
-		
+
     <main>
-        <section id="teachings" class="reveal">
-            <h2>Latest Articles</h2>
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="card">
-                        <span class="date-text">2024.01.04</span>
-                        <h3>''අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ''</h3>
-                        <p>ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා!...</p>
-                        <a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_1" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.05.09</span>
-                        <h3>''බුදුරජාණන් වහන්සේගේ මහා කරුණාව''</h3>
-                        <p>කරුණාව යනු අනුන්ගේ දුකෙහි දී හදවත කම්පා වීමයි...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/great-kindness" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.07.14</span>
-                        <h3>"අනුහස් පිරුණු සත්‍යක්‍රියාව"</h3>
-                        <p>ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා!...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sathyakriyawa" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.06.23</span>
-                        <h3>''තුති පූජාව''</h3>
-                        <p>තුති පූජාව මහත් ආනිශංස ගෙන දෙන්නක් ය..</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/2/1_4" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.08.22</span>
-                        <h3>"සසර පින පතළ කළ අසම සම රූ මහිම"</h3>
-                        <p>බුදුරජාණන් වහන්සේ නමක් ලෝකයට පහළ වීමට පෙර ලෝකයේ 'බුද්ධ කෝලාහලයක්' පැතිරී යනවා...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_02" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.09.28</span>
-                        <h3>සැපතත් සතුටත් ඇත්තේ වෛරය නැති තැනයි</h3>
-                        <p>මේ ලෝකයෙහි විවිධ සත්ව තල තිබේ. බුදුරදුන් වදාළේ සත්තාවාස හෙවත් විවිධ ස්වභාවයෙන් යුතු සත්ව තල නවයක් තිබෙන බවයි...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_04" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.10.12</span>
-                        <h3>මොකක්ද මේ ක්ෂණ සම්පත්තිය ? </h3>
-                        <p>ක්ෂණය යනු මොහොතකි. එ් මොහොත සැණෙකින් ගිලිහී යා හැකිය...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/kshana-sampaththiya" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.11.23</span>
-                        <h3>දෙව් සැප ලැබූ ඡත්ත මානවක දිව්‍යපුත්‍රයා </h3>
-                        <p>ඔහු විසුවේ සේතව්‍ය නුවරයි. ඡත්ත ඔහුගේ නමයි...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_05" class="read-more">Read More</a>
-                    </div>
-                    <div class="card">
-                        <span class="date-text">2024.12.16</span>
-                        <h3>අසිරිමත් ස්වර්ණමාලී මහා සෑ ඉතිහාසයෙන්</h3>
-                        <p>මෙම මහා භද්‍ර කල්පයේ සතර වැනි සම්මාසම්බුදු රජුන් ලෙස පහළ වූ අපගේ ගෞතම බුදුරජාණන් වහන්සේ...</p>
-                        <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_01" class="read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
+        <section class="page-title">
+            <h1>Dhamma Articles</h1>
+            <p>Discover a collection of thought-provoking articles on Buddhism.</p>
         </section>
 
-        <section id="import" class="reveal">
-            <h2>Important Articles</h2>
-            <div class="grid">
-                <div class="feature-card" onclick="window.location='https://www.lakshan2004.my-board.org/home/other_letters/other/0_5'">
-                    <h3>''තලපත් - කාලා තිබුනට දැකල නෑනෙ ?''</h3>
-                    <p>අපි එදිනෙදා කෑමට ගන්න කෑලි-මාලු වර්ගවලින් ගොඩක් ප්‍රචලිත වර්ගයක් තමයි තලපත් කියන්නෙ...</p>
-                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other/0_5" class="read-more">Read More</a>
+        <div class="filters">
+            <button class="filter-btn active">All Articles</button>
+            <button class="filter-btn">Buddhism</button>
+            <button class="filter-btn">Lifestyle</button>
+            <button class="filter-btn">Science & Tech</button>
+            <button class="filter-btn">Motivation</button>
+            <button class="filter-btn">General Knowledge</button>
+        </div>
+
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh3.googleusercontent.com/l1wQf52bugvvLzgx85wrtme1R5iRRAfzjS86fIdB1H_lBbbjftDiT7T41AehOXsL6imyTERIAtcLDzypogq63C5zAXxVhiJlKrImwd6Y9tjV6qMV8M3JqPby6cblSa8PBw=w1280')">
+                    <span class="article-category">Buddhism</span>
                 </div>
-                <div class="feature-card" onclick="window.location='https://www.lakshan2004.my-board.org/home/other_letters/other/0_1'">
-                    <h3>''කණ්ඩලම වැව් තාවුල්ලේ නිමවූ විශිෂ්ට නිර්මාණය''</h3>
-                    <p>කණ්ඩලම වැව් තාවුල්ලේ නිමවූ ජෙෆ්රි බාවා මහතාගේ විශිෂ්ට නිර්මාණය - (Heritance Kandalama) ☘️😍👣♥️...</p>
-                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other/0_1" class="read-more">Read More</a>
-                </div>
-                <div class="feature-card" onclick="window.location='https://www.lakshan2004.my-board.org/home/other_letters/other/0_2'">
-                    <h3>''උදෑසන ප්‍රමාදයකින් තොරව අවදිවීමට උපක්‍රමයක්''</h3>
-                    <p>බොහෝ දෙනෙක් උදෑසන ප්‍රමාදයකින් තොරව අවදිවීම සඳහා එලාම් එකක් තබා නිදාගන්න ට පුරුදු වෙලා ඉන්නවා...</p>
-                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other/0_2" class="read-more">Read More</a>
+                <div class="article-content">
+                    <div class="article-date">2024.01.04</div>
+                    <h3 class="article-title">''අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ''</h3>
+                    <p class="article-excerpt">ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා! බුදුරජාණන් වහන්සේ කෙරෙහි විශේෂ ගුණ ලක්ෂණ තිබේ. ඒවා අතර දෙතිස් මහා පුරුෂ ලක්ෂණ ප්‍රධාන වේ.</p>
+                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_1" class="read-more">Read More</a>
                 </div>
             </div>
-        </section>
 
-        <section id="events" class="schedule reveal">
-            <h2>Upcoming Events</h2>
-            <h3>2K25 April</h3>
-            <ul>
-                <li>Monday 7:00 PM </li>
-                <li>Wednesday 6:30 PM</li>
-                <li>Saturday 9:00 AM</li>
-                <li>Sunday 10:00 AM</li>
-            </ul>
-        </section>
-
-        <section id="resources" class="reveal">
-            <h2>Learning Resources</h2>
-            <div class="grid">
-                <div class="feature-card" onclick="window.location.href='https://kathuwaraya.com/';">
-                    <h3>Sinhala Reading Books</h3> 
-                    <p>Sinhala readers and writers. Download our free mobile apps to read Sinhala novels for free. Kathuwaraya is the new norm of reading and writing Sinhala stories</p>
+            <!-- Article 2 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/D4KhVYdGq5i6kpgF1M-4St19gBC3cmlV3oLELXqKLzgDvL8BvEwgloYuH-s-yXWHYN-ZqyPM_kgtqfWoeojWgS-TuDA9P0VUjc-_YnHXyjVEnTDc2eLY6V9kfxXVcwGleQ=w1280')">
+                    <span class="article-category">Buddhism</span>
                 </div>
-                <div class="feature-card" onclick="window.location.href='https://www.gutenberg.org';">
-                    <h3>English Reading Books </h3>
-                    <p>Download books and articles for reading. Project Gutenberg offers over 60,000 free eBooks.</p>
-                </div>
-                <div class="feature-card" onclick="window.location.href='https://www.goodreads.com/shelf/show/tamil-books-to-read';">
-                    <h3>Tamil Reading Books </h3>
-                    <p>Tamil Books To Read shelf on Goodreads - find popular Tamil literature and classics to enjoy.</p>
+                <div class="article-content">
+                    <div class="article-date">2024.05.09</div>
+                    <h3 class="article-title">''බුදුරජාණන් වහන්සේගේ මහා කරුණාව''</h3>
+                    <p class="article-excerpt">කරුණාව යනු අනුන්ගේ දුකෙහි දී හදවත කම්පා වීමයි. බුදුරජාණන් වහන්සේ මතු නොව ඉපැරණි බුදුවරුන්ගේද විශේෂ ගුණය වූයේ මහා කරුණාවයි.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/great-kindness" class="read-more">Read More</a>
                 </div>
             </div>
-        </section>
 
-        <section id="youtube" class="reveal">
-            <h2>YouTube Videos</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Motivation Movies</h3>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/ej49nXPXdJA?si=JPAyidgcpD9F2Ha2" title="Motivational Video" frameborder="0" allowfullscreen></iframe>
+            <!-- Article 3 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/966rswsIpAmW1IJq3nOwzkseosbDY6JEZTPU8zNgwBFqQRRm7_SxuVhEZ0oy3VXkivgQ9b9iXkea7WW2ToZJ0MUFrcY4KmNPU31h3YeFWFRxwHS_RsNZsG3gTzn556fcWw=w1280')">
+                    <span class="article-category">Buddhism</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.07.14</div>
+                    <h3 class="article-title">"අනුහස් පිරුණු සත්‍යක්‍රියාව"</h3>
+                    <p class="article-excerpt">ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා! සත්‍යක්‍රියාව යනු සත්‍ය බලය මතු කිරීමෙන් කෙරෙන ප්‍රාර්ථනාවකි.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sathyakriyawa" class="read-more">Read More</a>
                 </div>
             </div>
-        </section>
 
-        <section id="contact" class="reveal">
-            <h2>Contact Me</h2>
-            <div class="grid">
-                <div class="card">
-                    <p>For inquiries about my programs:</p>
-                    <ul>
-                        <li>Email: <a href="mailto:osithalakshan856@gmail.com">osithalakshan856@gmail.com</a></li>
-                        <li>My Article Site: <a href="https://www.lakshan2004.my-board.org/">lakshan.me</a></li>
-                        <li>Phone: <a href="tel:+94768855659">+94 76 885 5659</a></li>
-                        <li>Address: Sri Lanka, Colombo 07</li>
-                    </ul>
+            <!-- Article 4 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
+                    <span class="article-category">Buddhism</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.06.23</div>
+                    <h3 class="article-title">''තුති පූජාව''</h3>
+                    <p class="article-excerpt">තුති පූජාව මහත් ආනිශංස ගෙන දෙන්නක් ය. බුදුරජාණන් වහන්සේගේ ගුණ සිහිපත් කරමින් කෙරෙන තුති පූජාව විශේෂ ආනිසංස ගෙන දෙයි.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/2/1_4" class="read-more">Read More</a>
                 </div>
             </div>
+
+            <!-- Article 5 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh5.googleusercontent.com/dnjL5J2wxEXXese65QNaE-JB9_cXGus1kN4hZ9MFT9CBApi8nyJSFqJKqW9yM9m1p77Riqc6rQpAbUxi3ZxTuNB9zFxJfK64MZSmYQOQ81p14480MbAEOHhEKPxgO0HEbw=w1280')">
+                    <span class="article-category">Buddhism</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.08.22</div>
+                    <h3 class="article-title">"සසර පින පතළ කළ අසම සම රූ මහිම"</h3>
+                    <p class="article-excerpt">බුදුරජාණන් වහන්සේ නමක් ලෝකයට පහළ වීමට පෙර ලෝකයේ 'බුද්ධ කෝලාහලයක්' පැතිරී යනවා. මේ සාරාසංඛ්‍ය කල්ප ලක්ෂයක් මුළුල්ලේ පුරපු පාරමිතා ඇති සත්වයෙක් බුදුවීමට සූදානම් වන නිසා.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_02" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 6 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh4.googleusercontent.com/VIQqQBZEVjstQqpwGF9DMpF7mW5yy9crIfsp_ujjWeYlQArxqI1uAJc2LOQip2qTMXTdwYF3I9D-sLjIRLENWfrVl21rprRAvrLiyxT6sh3e5q7v1Hlnl8fP2xydbxdi=w1280')">
+                    <span class="article-category">Lifestyle</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.09.28</div>
+                    <h3 class="article-title">සැපතත් සතුටත් ඇත්තේ වෛරය නැති තැනයි</h3>
+                    <p class="article-excerpt">මේ ලෝකයෙහි විවිධ සත්ව තල තිබේ. බුදුරදුන් වදාළේ සත්තාවාස හෙවත් විවිධ ස්වභාවයෙන් යුතු සත්ව තල නවයක් තිබෙන බවයි. ඔවුන් අතර වෛරය අඩු වූ තැන සැප සතුට දැකිය හැකිය.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_04" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 7 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/awBvCgvn_kB_0l708iSLmO7MLdZyKxdRFiKAynrAx3JLcWUK8gQY5_2IXpJxn-Jip0mdcssH37VXQ7dob8bcDT7CPbHE2o0xlWu1N3ynjIgMZh0F0UR7SFwpHuPt6F2z4Q=w1280')">
+                    <span class="article-category">Buddhism</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.10.12</div>
+                    <h3 class="article-title">මොකක්ද මේ ක්ෂණ සම්පත්තිය?</h3>
+                    <p class="article-excerpt">ක්ෂණය යනු මොහොතකි. එ් මොහොත සැණෙකින් ගිලිහී යා හැකිය. බුදුරජාණන් වහන්සේ දේශනා කළේ ක්ෂණ සම්පත්තිය ලබා ගැනීම දුර්ලභ බවයි.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/kshana-sampaththiya" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 8 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('https://lh6.googleusercontent.com/4_qnZBZmJj70389S5cRkcy8xj7L4yHbeFj1zaEde1Heym7QK7He2_K4T6MpJM6R640i-d8_yhUCvGA8am4z1doUsTdUVGxItqfab_58IfqwJaLRfYdo_d5uaFbxqWI0P4w=w1280')">
+                    <span class="article-category">Buddhism</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.11.23</div>
+                    <h3 class="article-title">දෙව් සැප ලැබූ ඡත්ත මානවක දිව්‍යපුත්‍රයා</h3>
+                    <p class="article-excerpt">ඔහු විසුවේ සේතව්‍ය නුවරයි. ඡත්ත ඔහුගේ නමයි. බුදුරජාණන් වහන්සේට පූජා කිරීමෙන් ඔහු දිව්‍ය ලෝකයට උපන් ආකාරය මෙම ලිපියෙන් කියැවේ.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_05" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 9 -->
+            <div class="article-card">
+                <div class="article-image" style="background-image: url('/api/placeholder/400/320')">
+                    <span class="article-category">Knowledge</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-date">2024.12.16</div>
+                    <h3 class="article-title">අසිරිමත් ස්වර්ණමාලී මහා සෑ ඉතිහාසයෙන්</h3>
+                    <p class="article-excerpt">මෙම මහා භද්‍ර කල්පයේ සතර වැනි සම්මාසම්බුදු රජුන් ලෙස පහළ වූ අපගේ ගෞතම බුදුරජාණන් වහන්සේ ගැන සහ ස්වර්ණමාලී මහා සෑය ගැන විස්තර සොයා යමු.</p>
+                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/sitha_niwana_01" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <div class="page-item active">1</div>
+            <a href="index2_articles.html" class="page-item">2</a>
+            <div class="page-item">3</div>
+            <div class="page-item">4</div>
+            <div class="page-item">→</div>
+        </div>
+
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest articles, updates, and spiritual insights delivered directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
         </section>
     </main>
+
+    <div class="back-to-top">↑</div>
 
     <footer>
         <p>© 2025 Lakshan Bandara. All rights reserved.</p>
         <p>Follow us on social media for daily inspiration and updates</p>
         
         <div class="social-icons">
-            <a href="https://wa.me/+94768855659" target="_blank" aria-label="WhatsApp">
-                <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
-            </a>
-            <a href="https://t.me/Lakshan856_004" target="_blank" aria-label="Telegram">
-                <img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" alt="Telegram">
-            </a>
-            <a href="#" target="_blank" aria-label="YouTube">
-                <img src="https://img.icons8.com/color/48/000000/youtube" alt="YouTube">
-            </a>
-            <a href="#" target="_blank" aria-label="Twitter">
-                <img src="https://img.icons8.com/color/48/000000/twitter" alt="Twitter">
-            </a>
-            <a href="#" target="_blank" aria-label="Facebook">
-                <img src="https://img.icons8.com/color/48/000000/facebook" alt="Facebook">
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function revealElements() {
-                let reveals = document.querySelectorAll(".reveal");
-                reveals.forEach((element) => {
-                    let windowHeight = window.innerHeight;
-                    let elementTop = element.getBoundingClientRect().top;
-                    let revealPoint = 100;
-
-                    if (elementTop < windowHeight - revealPoint) {
-                        element.classList.add("active");
-                    }
-                });
-            }
-
-            // Initial check when page loads
-            revealElements();
-            
-            // Check on scroll
-            window.addEventListener("scroll", revealElements);
-            
-            // Check when window is resized
-            window.addEventListener("resize", revealElements);
-            
-            // Smooth scroll for navigation links
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        
-                        const targetId = href === '#' ? 'body' : href;
-                        const targetElement = targetId === 'body' ? 
-                            document.body : 
-                            document.querySelector(targetId);
-                            
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-
-</body>
-</html>
+            <a href="https://wa.me/+94768855659" target="_blank
