@@ -268,6 +268,42 @@
                 padding: 0.4rem 0.6rem; /* Adjust padding further */
             }
         }
+		
+		.carousel-container {
+		  overflow: hidden;
+		  width: 100%;
+		  position: relative;
+		  padding: 2rem 0;
+		}
+
+		.carousel-track {
+		  display: flex;
+		  gap: 2rem;
+		  animation: scroll-left 30s linear infinite;
+		  width: max-content;
+		}
+
+		@keyframes scroll-left {
+		  0% {
+			transform: translateX(0%);
+		  }
+		  100% {
+			transform: translateX(-50%);
+		  }
+		}
+
+		.carousel-track .card {
+		  min-width: 250px;
+		  background: white;
+		  border-radius: 15px;
+		  padding: 1rem;
+		  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		  flex-shrink: 0;
+		  text-align: center;
+		  font-size: 18px;
+		  font-weight: bold;
+		}
+
     </style>
 </head>
 <body>
@@ -299,26 +335,28 @@
     <main>
         <section id="teachings" class="reveal">
             <h2>Latest Articles</h2>
-            <div class="grid">
-                <div class="card">
-					<p2>2024.01.04</p2>
-                    <h3>''අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ''</h3>
-                    <p>ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා!...</p>
-                    <a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_1" class="read-more">Read More</a>
-                </div>
-                <div class="card">
-					<p2>2024.05.09</p2>
-                    <h3>''බුදුරජාණන් වහන්සේ ගේ මහා කරුණාව''</h3>
-                    <p>කරුණාව යනු අනුන් ගේ දුකෙහි දී හදවත කම්පා වීමයි...</p>
-                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/great-kindness" class="read-more">Read More</a>
-                </div>
-                <div class="card">
-					<p2>2024.06.23</p2>
-                    <h3>''තුති පූජාව''</h3>
-                    <p>තුති පූජාව මහත් ආනිශංස ගෙන දෙන්නක් ය..</p>
-                    <a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/2/1_4" class="read-more">Read More</a>
-                </div>
-            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+					<div class="card">
+						<p2>2024.01.04</p2>
+						<h3>''අප භාග්‍යවතුන් වහන්සේගේ දෙතිස් මහා පුරුෂ ලක්ෂණ''</h3>
+						<p>ඒ භාග්‍යවත් වූ අර්හත් වූ සම්මා සම්බුදු රජාණන් වහන්සේට නමස්කාර වේවා!...</p>
+						<a href="https://www.lakshan2004.my-board.org/home/other_letters/other3/00_1" class="read-more">Read More</a>
+					</div>
+					<div class="card">
+						<p2>2024.05.09</p2>
+						<h3>''බුදුරජාණන් වහන්සේ ගේ මහා කරුණාව''</h3>
+						<p>කරුණාව යනු අනුන් ගේ දුකෙහි දී හදවත කම්පා වීමයි...</p>
+						<a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/1/great-kindness" class="read-more">Read More</a>
+					</div>
+					<div class="card">
+						<p2>2024.06.23</p2>
+						<h3>''තුති පූජාව''</h3>
+						<p>තුති පූජාව මහත් ආනිශංස ගෙන දෙන්නක් ය..</p>
+						<a href="https://www.lakshan2004.my-board.org/sadaham-arana/dhamma-articles/2/1_4" class="read-more">Read More</a>
+					</div>
+				</div>
+			</div>
         </section>
 
         <section id="import" class="reveal">
